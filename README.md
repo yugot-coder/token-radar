@@ -1,8 +1,8 @@
 # token-radar
 
-[![make.fun bounty](https://make.fun/api/competitions/token-radar-01/badge.svg?owner=yugot-coder)](https://make.fun/c/token-radar-01)
-[![make.fun rank](https://make.fun/api/competitions/token-radar-01/rank-badge.svg?owner=yugot-coder)](https://make.fun/c/token-radar-01)
-[![make.fun reward](https://make.fun/api/rewards/badge.svg?owner=yugot-coder)](https://make.fun/profile/yugot-coder)
+[![make.fun · token-radar-01](https://make.fun/badge/token-radar-01.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![rank](https://make.fun/badge/token-radar-01/yugot-coder/token-radar/rank.svg)](https://make.fun/bounty/token-radar-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
+[![reward](https://make.fun/badge/token-radar-01/yugot-coder/token-radar/reward.svg)](https://make.fun/bounty/token-radar-01?utm_source=github&utm_medium=readme&utm_campaign=token-radar-01)
 
 A token launch radar over the sealed DefiLlama snapshot of 2026-11-14. It ranks 196 protocols that record no token — no market cap, no CoinGecko id, no symbol in their record — by the value a hypothetical token launch would imply, and gives every one a farm plan with costs and times.
 
