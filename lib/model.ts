@@ -170,10 +170,10 @@ export const CATEGORY_FAMILY: Record<string, string> = {
   RWA: 'Real-world assets',
 };
 
-/** The family a category belongs to; a category in no family is priced by the market. */
+/** The family a category belongs to; a category in no family sits in the Unclassified bucket. */
 export function familyOf(category: string | null): string {
-  if (category === null) return 'Market';
-  return CATEGORY_FAMILY[category] ?? 'Market';
+  if (category === null) return 'Unclassified';
+  return CATEGORY_FAMILY[category] ?? 'Unclassified';
 }
 
 /** Categories that are a product of an asset that already trades, or an exchange's balances. */
@@ -660,9 +660,9 @@ export function riskFor(p: SnapshotProtocol): string {
 export const HANDCRAFTED: Record<string, FarmStep[]> = {
   'steakhouse-financial': [
     { text: 'Use a fresh wallet that holds only the funds you plan to farm Steakhouse Financial with, and keep its seed phrase offline.', cost: 'under $3 of gas for the first transaction', time: '5 minutes' },
-    { text: 'Fund the wallet on Ethereum, Steakhouse\'s main chain of the 11 it runs on, with USDC for the position plus ETH for gas.', cost: 'about $5 to $15 of gas on Ethereum at quiet times', time: '10 minutes' },
-    { text: 'Deposit $250 of USDC into Steakhouse\'s flagship USDC vault on Morpho (its steakUSDC vault) and keep the vault shares in the farming wallet.', cost: '$250 of capital in the position', time: '15 minutes to set up' },
-    { text: 'After a week, put a second, smaller deposit into Steakhouse\'s ETH vault on Morpho, so two of its curated vaults record your wallet.', cost: 'a further $100 of capital, plus a few dollars of gas', time: '10 minutes' },
+    { text: 'Fund the wallet on Base, Steakhouse\'s largest chain of the 11 it runs on in this snapshot, with USDC for the position plus a little ETH for gas.', cost: 'under $1 of gas on Base', time: '10 minutes' },
+    { text: 'Deposit $250 of USDC into Steakhouse\'s flagship USDC vault on Morpho on Base (its steakUSDC vault) and keep the vault shares in the farming wallet.', cost: '$250 of capital in the position', time: '15 minutes to set up' },
+    { text: 'After a week, put a second, smaller deposit into Steakhouse\'s USDC vault on Morpho on Ethereum, so two of its curated vaults on two chains record your wallet.', cost: 'a further $100 of capital, plus Ethereum gas at a quiet time', time: '10 minutes' },
     { text: 'Once a week, open the vault\'s page on Morpho and read its allocation note: if Steakhouse moves the vault\'s markets or caps, note the date in your log.', cost: 'no transaction needed to check', time: '10 minutes a week' },
     { text: 'Hold both vault positions for at least 30 days, so the activity is counted in more than one snapshot of Steakhouse Financial.', cost: 'the $350 stays in the vaults', time: '30 days' },
     { text: 'Before withdrawing, check Steakhouse\'s own site and Morpho\'s rewards page for anything owed to the wallet, claim only from links they publish, then log the wallet, the dates and every transaction.', cost: 'no fee to check, and never pay to claim', time: '10 minutes' },
@@ -687,16 +687,16 @@ export const HANDCRAFTED: Record<string, FarmStep[]> = {
   ],
   veda: [
     { text: 'Use a fresh wallet that holds only the funds you plan to farm Veda with, and keep its seed phrase offline.', cost: 'under $3 of gas for the first transaction', time: '5 minutes' },
-    { text: 'Fund the wallet on Ethereum, Veda\'s main chain of the 10 it runs on, with USDC for the position plus ETH for gas.', cost: 'about $5 to $15 of gas on Ethereum at quiet times', time: '10 minutes' },
-    { text: 'Deposit $250 of USDC into Veda\'s main BoringVault deployment on Ethereum and keep the vault shares: Veda allocates the vault across lending and liquidity venues from there.', cost: '$250 of capital in the position', time: '15 minutes to set up' },
-    { text: 'After a week, add a smaller deposit to a second Veda vault on one of its other chains, such as Sonic, so two deployments record your wallet.', cost: 'a further $100 of capital, plus a few dollars of gas', time: '10 minutes' },
+    { text: 'Fund the wallet on Ink, Veda\'s largest chain of the 13 it runs on in this snapshot, with USDC for the position plus gas.', cost: 'under $1 of gas on Ink', time: '10 minutes' },
+    { text: 'Deposit $250 of USDC into Veda\'s main BoringVault deployment on Ink and keep the vault shares: Veda allocates the vault across lending and liquidity venues from there.', cost: '$250 of capital in the position', time: '15 minutes to set up' },
+    { text: 'After a week, add a smaller deposit to Veda\'s BoringVault deployment on Ethereum, so two deployments on two chains record your wallet.', cost: 'a further $100 of capital, plus Ethereum gas at a quiet time', time: '10 minutes' },
     { text: 'Once a week, open Veda\'s app and check the vault\'s reported yield and any points balance it shows for the wallet; screenshot the figure for your log.', cost: 'no transaction needed to check', time: '10 minutes a week' },
     { text: 'Hold the positions for at least 30 days, so the activity is counted in more than one snapshot of Veda.', cost: 'the $350 stays in the vaults', time: '30 days' },
     { text: 'Before withdrawing, test the exit with a small withdrawal first: vault exits can queue, and the queue length is part of what you are logging about Veda.', cost: 'gas on the test withdrawal only', time: '15 minutes' },
   ],
   usdd: [
     { text: 'Use a fresh Tron wallet that holds only the funds you plan to farm USDD with, and keep its seed phrase offline.', cost: 'about $1 of energy and bandwidth fees on Tron', time: '5 minutes' },
-    { text: 'Fund the wallet on Tron, USDD\'s only chain in this snapshot, with TRX for collateral and fees.', cost: 'about $1 of energy and bandwidth fees on Tron', time: '10 minutes' },
+    { text: 'Fund the wallet on Tron, USDD\'s main chain of the three it runs on, with TRX for collateral and fees.', cost: 'about $1 of energy and bandwidth fees on Tron', time: '10 minutes' },
     { text: 'Mint USDD on its own site by depositing TRX as collateral at a ratio above 150%, minting about $150 of USDD against it: leave the buffer, Tron collateral moves fast.', cost: '$150 of USDD minted against roughly $250 of TRX', time: '15 minutes to set up' },
     { text: 'Stake the minted USDD into its savings vault (sUSDD) on the same site, so the position earns the protocol\'s own rate while it is counted.', cost: 'the minted USDD, plus a few cents of fees', time: '10 minutes' },
     { text: 'Once a week, check the collateral ratio and top the TRX up if it drifts toward 150%, and supply a small amount of USDD on JustLend so a second venue records the wallet.', cost: 'about $1 of fees a week', time: '10 minutes a week' },
@@ -864,7 +864,7 @@ export function liveRows(snapshot: Snapshot): LiveRow[] {
 export function peerGroupRows(book: PeerBook): PeerGroupRow[] {
   const rows: PeerGroupRow[] = [{ label: 'All tokenised protocols', kind: 'market', ...book.market }];
   for (const [label, st] of [...book.byFamily.entries()].sort((a, b) => (a[0] < b[0] ? -1 : 1))) {
-    if (label !== 'Market') rows.push({ label, kind: 'family', ...st });
+    rows.push({ label, kind: 'family', ...st });
   }
   for (const [label, st] of [...book.byCategory.entries()].sort((a, b) => b[1].n - a[1].n || (a[0] < b[0] ? -1 : 1))) {
     rows.push({ label, kind: 'category', ...st });
