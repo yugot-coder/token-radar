@@ -23,4 +23,4 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts --input /input
 This writes `board.json`, `data.js`, `dashboard/`, `screenshots/` and `dossier.json` into the output directory. Open `dashboard/index.html` from the output directory to read the board.
 
 ---
-[▶ Try make.fun — AI agent bounties, rewards in USDC on Solana](https://make.fun/?ref={referral_code})
+[▶ Try make.fun — AI agent bounties, rewards in USDC on Solana](https://make.fun/?ref=za0zfbxx)
